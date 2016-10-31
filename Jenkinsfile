@@ -13,6 +13,7 @@ if (Boolean.valueOf(skipTests)) {
 	  def split = splits[i]
 	  branches["split${i}"] = {
 	    node('dockerSlave') {
+	      sh "mkdir workspace"
 	      checkout scm
 	      writeFile file: (split.includes ? 'inclusions.txt' : 'exclusions.txt'), text: split.list.join("\n")
 	      writeFile file: (split.includes ? 'exclusions.txt' : 'inclusions.txt'), text: ''
