@@ -49,7 +49,7 @@ node('dockerSlave') {
     sh "git tag v${v}"
 
     stage 'Release Build'
-    sshagent(['601b6ce9-37f7-439a-ac0b-8e368947d98d']) {
+    sshagent(['vgulch-github']) {
       sh "${mvnHome}/bin/mvn -B -DskipTests clean deploy"
       sh "git push origin " + env.BRANCH_NAME
       sh "git push origin v${v}"
@@ -59,7 +59,7 @@ node('dockerSlave') {
     if (Boolean.valueOf(skipDocker)) {
       echo "Skipped"
     } else {
-	    withEnv(['DOCKER_HOST=tcp://gemini.office:2375']) {
+	    withEnv(['DOCKER_HOST=tcp://lab1:5000']) {
 	        sh "captain build"
 	        sh "captain push"
 	    }
