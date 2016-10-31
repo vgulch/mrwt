@@ -15,6 +15,7 @@ if (Boolean.valueOf(skipTests)) {
 	    node('dockerSlave') {
 	      sh "mkdir -p /home/jenkins/workspace/mwrt"
               sh "ls -l /home/jenkins/"
+              sh "/usr/bin/git init /home/jenkins/workspace/mwrt"
 	      checkout scm
 	      writeFile file: (split.includes ? 'inclusions.txt' : 'exclusions.txt'), text: split.list.join("\n")
 	      writeFile file: (split.includes ? 'exclusions.txt' : 'inclusions.txt'), text: ''
