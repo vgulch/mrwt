@@ -57,7 +57,7 @@ node('dockerSlave') {
     stage 'Release Build'
     sshagent(['vgulch-github']) {
       sh "${mvnHome}/bin/mvn -B -DskipTests clean deploy"
-      sh "git push origin " + env.BRANCH_NAME
+      sh "git push origin master"
       sh "git push origin v${v}"
     }
 
