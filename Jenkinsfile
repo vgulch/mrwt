@@ -34,6 +34,7 @@ node('dockerSlave') {
     sh "rm -rf *"
     sh "rm -rf .git"
     checkout scm
+    sh "echo $env.BRANCH_NAME"
     //checkout([$class: 'GitSCM', branches: [[name: '*/' + env.BRANCH_NAME]],
     //    extensions: [[$class: 'CleanCheckout'],[$class: 'LocalBranch', localBranch: env.BRANCH_NAME]]])
 
