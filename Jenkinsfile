@@ -48,6 +48,8 @@ node('dockerSlave') {
        echo "Building version ${v}"
     }
     sh "${mvnHome}/bin/mvn -B versions:set -DgenerateBackupPoms=false -DnewVersion=${v}"
+    sh "git config --global user.email 'you@example.com'"
+    sh "git config --global user.name 'Your Name'"
     sh 'git add .'
     sh "git commit -m 'Raise version'"
     sh "git tag v${v}"
