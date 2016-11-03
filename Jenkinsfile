@@ -66,7 +66,7 @@ node('dockerSlave') {
     if (Boolean.valueOf(skipDocker)) {
       echo "Skipped"
     } else {
-	    withEnv(['DOCKER_HOST=tcp://lab1:5000']) {
+	    withEnv(['DOCKER_HOST=tcp://192.168.132.176:5000']) {
 		sh "date;pwd;whoami;ls -al; env"
 		input message: "ok ?"		   
 	        sh "/home/jenkins/.captain/bin/captain build"
