@@ -38,14 +38,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>lan.releases</id>
-			<name>Gentics Internal Public Repository Stage</name>
-			<url>http://artifactory.office/repository/lan.releases</url>
+			<id>central</id>
+			<name>lab1-releases</name>
+			<url>http://192.168.132.176:8081/artifactory/libs-release-local</url>
 		</repository>
 		<snapshotRepository>
-			<id>lan.snapshots</id>
-			<name>Gentics Public Snapshots Repository</name>
-			<url>http://artifactory.office/repository/lan.snapshots</url>
+			<id>central</id>
+			<name>lab1-releases</name>
+			<url>http://192.168.132.176:8081/artifactory/libs-release-local</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
