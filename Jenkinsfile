@@ -68,8 +68,8 @@ node('dockerSlave') {
     } else {
 	    withEnv(['DOCKER_HOST=tcp://lab1:5000']) {
 		sh "date;pwd;whoami;ls -al; env"
+		input message: "ok ?"		   
 	        sh "/home/jenkins/.captain/bin/captain build"
-		input message: "ok ?"
 	        sh "/home/jenkins/.captain/bin/captain push"
 	    }
     }
