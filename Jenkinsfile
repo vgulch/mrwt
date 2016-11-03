@@ -67,6 +67,7 @@ node('dockerSlave') {
       echo "Skipped"
     } else {
 	    withEnv(['DOCKER_HOST=tcp://lab1:5000']) {
+		input message: "is everything ok?"
 	        sh "captain build"
 	        sh "captain push"
 	    }
