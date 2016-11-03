@@ -4,7 +4,7 @@ RUN apt-get update --quiet --quiet \
     && apt-get install --quiet --quiet --no-install-recommends lsof \
     && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 8080 7474
+EXPOSE 7474 7474
 
 ADD ./core/target/maven*jar /test/release-test.jar
 WORKDIR /test
