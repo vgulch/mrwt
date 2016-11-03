@@ -1,6 +1,6 @@
 release-test:
   build: Dockerfile
-  image: registry.office/release-test
+  image: evarga/jenkins-slave
   pre:
     - echo "Preparing release-test"
   post:
