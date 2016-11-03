@@ -17,6 +17,7 @@ if (Boolean.valueOf(skipTests)) {
               //sh "ls -l /home/jenkins/"
               //sh "/usr/bin/git init /home/jenkins/workspace/mwrt"
 	      checkout scm
+	      git url("")
 	      writeFile file: (split.includes ? 'inclusions.txt' : 'exclusions.txt'), text: split.list.join("\n")
 	      writeFile file: (split.includes ? 'exclusions.txt' : 'inclusions.txt'), text: ''
 	      def mvnHome = tool 'M3'
@@ -57,8 +58,8 @@ node('dockerSlave') {
     stage 'Release Build'
     sshagent(['vgulch-github']) {
       sh "${mvnHome}/bin/mvn -B -DskipTests clean deploy"
-      sh "git push origin master"
-      sh "git push origin v${v}"
+      sh "git push origin HEAD:master"
+      //sh "git push origin v${v}"
     }
 
     stage 'Docker Build'
