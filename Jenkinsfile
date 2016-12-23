@@ -28,7 +28,6 @@ if (Boolean.valueOf(skipTests)) {
 	}
 	parallel branches
 }
-
 node('dockerSlave') {
     def mvnHome = tool 'M3'
     

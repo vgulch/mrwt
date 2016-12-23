@@ -14,4 +14,3 @@ RUN ln -s /data /test/data
 VOLUME /data
 
 CMD [ "java", "-jar" , "release-test.jar" ]
-
